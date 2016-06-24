@@ -1,0 +1,19 @@
+{
+	"name": "irpsv/juggernaut.bitrix",
+	"type": "library",
+    "license": "BSD-3-Clause",
+    "authors": [
+    	{
+    		"name": "Ilya Rupasov",
+            "email": "i.rpsv@live.com"
+    	}
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jugger\\": "lib/"
+        }
+    }
+}
