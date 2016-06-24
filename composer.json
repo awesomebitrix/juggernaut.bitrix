@@ -13,7 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Jugger\\": "lib/"
+            "Jugger": "olof_juggernaut/lib/"
         }
     }
 }
