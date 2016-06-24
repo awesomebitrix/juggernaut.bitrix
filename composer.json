@@ -2,6 +2,7 @@
 	"name": "irpsv/juggernaut.bitrix",
 	"type": "library",
     "license": "BSD-3-Clause",
+    "minimum-stability": "dev",
     "authors": [
     	{
     		"name": "Ilya Rupasov",
