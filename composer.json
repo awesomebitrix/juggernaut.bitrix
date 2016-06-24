@@ -2,7 +2,7 @@
 	"name": "irpsv/juggernaut.bitrix",
 	"type": "library",
     "license": "BSD-3-Clause",
-    "version": "0.5.0",
+    "version": "1.0.0-dev",
     "minimum-stability": "dev",
 	"replace": {
 		"irpsv/juggernaut.bitrix": "self.version"
