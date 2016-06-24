@@ -5,7 +5,7 @@
     "version": "0.5.0",
     "minimum-stability": "dev",
 	"replace": {
-		"yiisoft/yii2": "self.version"
+		"irpsv/juggernaut.bitrix": "self.version"
 	},
     "authors": [
     	{
