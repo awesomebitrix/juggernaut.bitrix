@@ -3,9 +3,12 @@
 	"type": "library",
     "license": "BSD-3-Clause",
     "minimum-stability": "dev",
+	"replace": {
+		"yiisoft/yii2": "self.version"
+	},
     "authors": [
     	{
-    		"name": "Ilya Rupasov",
+			"name": "Ilya Rupasov",
             "email": "i.rpsv@live.com"
     	}
     ],
