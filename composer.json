@@ -1,6 +1,7 @@
 {
 	"name": "irpsv/juggernaut.bitrix",
     "license": "BSD-3-Clause",
+    "version": "1.0.0",
     "require": {
         "php": ">=5.4.0"
     },
