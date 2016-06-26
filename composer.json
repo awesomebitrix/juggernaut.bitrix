@@ -16,5 +16,5 @@
     "minimum-stability": "dev",
     "replace": {
         "irpsv/juggernaut.bitrix": "self.version"
-    },
+    }
 }
