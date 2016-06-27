@@ -1,19 +1,10 @@
 {
-	"name": "irpsv/juggernaut.bitrix-dev",
+	"name": "irpsv/juggernaut.bitrix",
 	"license": "BSD-3-Clause",
-	"keywords": [
-		"bitrix"
-	],
-	"require": {
-		"php": ">=5.4.0"
-	},
+	"version": "1.0.0",
 	"autoload": {
 		"psr-4": {
 			"Jugger\\": "olof_juggernaut/lib/"
 		}
-	},
-	"minimum-stability": "dev",
-	"replace": {
-		"irpsv/juggernaut.bitrix": "self.version"
 	}
 }
