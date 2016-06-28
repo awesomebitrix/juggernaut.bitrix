@@ -19,3 +19,4 @@
 * нормальный AssetsManager
 * набор компонентов для создания и работы с административным интерфейсом
 * нормальная маршрутизация (завязанная на HttpException)
+* [PSR-14](https://github.com/php-fig/fig-standards/blob/master/proposed/event-manager.md) (MAYBE)
