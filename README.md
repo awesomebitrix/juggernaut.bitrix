@@ -14,9 +14,10 @@
 
 * Composer
 * нормальный QueryBuilder
+* нормальная маршрутизация и единая точка входа (завязанная на HttpException)
 * PHPUnit
-* нормальное кеширование
+* нормальное кеширование (зависимое и кеш переменных)
 * нормальный AssetsManager
 * набор компонентов для создания и работы с административным интерфейсом
-* нормальная маршрутизация (завязанная на HttpException)
-* [PSR-14](https://github.com/php-fig/fig-standards/blob/master/proposed/event-manager.md) (MAYBE)
+* Паттерн repository (?)
+* [PSR-14](https://github.com/php-fig/fig-standards/blob/master/proposed/event-manager.md) (?)
