@@ -1,6 +1,7 @@
 1. composer
 1. валидаторы
 1. QueryBuilder
+1. виджеты для bootstrap
 1. PJAX + Composite
 1. маршрутизация и единая точка входа (завязанная на HttpException)
 1. PHPUnit
