@@ -7,4 +7,4 @@
 1. нормальный AssetsManager
 1. набор компонентов для создания и работы с административным интерфейсом
 1. Паттерн repository (?)
-1. PSR-14 (?)
+1. [PSR-14](https://github.com/php-fig/fig-standards/blob/master/proposed/event-manager.md) (?)
