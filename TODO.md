@@ -1,6 +1,7 @@
 1. composer
 2. переписать autoload для указания нескольких корневых директорий
 1. валидаторы
+2. избавиться от Singleton'ов
 1. QueryBuilder
 1. виджеты для bootstrap
 1. PJAX + Composite
