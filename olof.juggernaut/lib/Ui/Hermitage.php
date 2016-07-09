@@ -24,7 +24,7 @@ class Hermitage
      * @param \CBitrixComponent $template
      * @param IblockElement $element
      */
-    public static function addButtonEditIblockElement(\CBitrixComponentTemplate & $template, IblockElement $element, $title = "Редактировать") {
+    public static function addButtonEditIblockElement(\CBitrixComponentTemplate $template, IblockElement $element, $title = "Редактировать") {
         $template->AddEditAction(
             $element->ID,
             Iblock::getElementUpdateUrl($element),
@@ -36,7 +36,7 @@ class Hermitage
      * @param \CBitrixComponent $template
      * @param IblockElement $element
      */
-    public static function addButtonDeleteIblockElement(\CBitrixComponentTemplate & $template, IblockElement $element, $title = "Удалить") {
+    public static function addButtonDeleteIblockElement(\CBitrixComponentTemplate $template, IblockElement $element, $title = "Удалить") {
         $template->AddDeleteAction(
             $element->ID,
             Iblock::getElementDeleteUrl($element),
@@ -51,7 +51,7 @@ class Hermitage
      * @param \CBitrixComponent $template
      * @param IblockElement $element
      */
-    public static function addButtonEditIblockSection(\CBitrixComponentTemplate & $template, IblockSection $element, $title = "Редактировать") {
+    public static function addButtonEditIblockSection(\CBitrixComponentTemplate $template, IblockSection $element, $title = "Редактировать") {
         $template->AddEditAction(
             $element->ID,
             Iblock::getSectionUpdateUrl($element),
@@ -63,7 +63,7 @@ class Hermitage
      * @param \CBitrixComponent $template
      * @param IblockElement $element
      */
-    public static function addButtonDeleteIblockSection(\CBitrixComponentTemplate & $template, IblockSection $element, $title = "Удалить") {
+    public static function addButtonDeleteIblockSection(\CBitrixComponentTemplate $template, IblockSection $element, $title = "Удалить") {
         $template->AddDeleteAction(
             $element->ID,
             Iblock::getSectionDeleteUrl($element),
