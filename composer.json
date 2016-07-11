@@ -1,6 +1,6 @@
 {
 	"name": "irpsv/juggernaut.bitrix",
-	"license": "BSD-3-Clause",
+	"license": "MIT",
 	"version": "1.0.0",
 	"autoload": {
 		"psr-4": {
