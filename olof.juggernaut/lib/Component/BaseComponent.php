@@ -11,7 +11,7 @@ abstract class BaseComponent extends \CBitrixComponent
 {
     /**
      * Объект запроса
-     * @var \Bitrix\Main\Request
+     * @var \Bitrix\Main\HttpRequest
      */
     protected $request;
     /**
