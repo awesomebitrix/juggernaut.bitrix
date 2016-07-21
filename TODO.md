@@ -175,3 +175,46 @@ class Template
     }
 }
 ```
+
+Провайдер данных:
+
+```php
+$data = new ResultProvider(
+	Result $result,
+	Sorter $sorter,
+	Paginator $paginator
+);
+// обращение к элементам
+$data->sorter;
+$data->paginator;
+
+
+/*
+ * список элементов инфоблока (массив)
+ * с сортировкой по названию, цене, и популярности (свойства)
+ * с пагиначией по 50 элементов на странице
+ */
+$elementList = IblockElement::getList()->fetchAll();
+
+$data = new ArrayProvider($elementList);
+
+$data->sorter = new Sorter(["name","price","popular"]);
+$data->sorter->setSortTypes("name", [
+	Sorter::ASC_NATURAL,
+	Sorter::DESC_NATURAL,
+]);
+
+$data->paginator = new Paginator(50, count($elementList));
+$data->paginator->nowPage = 3;
+
+foreach ($data->getModels() as $model) {
+	// ...
+}
+
+// первый элемент (с учетом сортировки и пагинации)
+$data->get(0) = "...";
+// true, т.к. на странице максимум 50 записей, следовательно индексы 0-49
+$data->get(50) === null;
+// найти первый элемент на текущей странице (3 параметр: true) который удовлетворяет условию: $row['name'] === 'искомое имя'
+$data->find("name", "искомое имя", true);
+```
