@@ -6,12 +6,18 @@ use Bitrix\Main\Context;
 use Jugger\Context\Session;
 
 /**
- * Класс для работы с защитой от CSRF атак
+ * Класс для работы с защитой от CSRF атак.
  */
 class Csrf
 {
     /**
-     * Секретное слово (желательно изменить)
+     * Ключ сессии для возможности использовать несколько токенов в одном запросе.
+     * Для каждого токена должен быть уникальный ключ сессии
+     * @var string
+     */
+    public static $sessionKey = "csrfSessionKey";
+    /**
+     * Секретное слово
      * @var string
      */
     public static $secret = "csrfsecretword";
@@ -34,7 +40,8 @@ class Csrf
     public static function createToken() {
         $token = md5( self::$secret . microtime() );
         $token = md5( self::$salt . $token );
-        $_SESSION[self::$secret] = $token;
+        Session::getInstance()->set(self::$sessionKey, $token);
+        Session::getInstance()->commit();
         return $token;
     }
     /**
@@ -43,7 +50,7 @@ class Csrf
      * @return boolean TRUE - если токен валидный
      */
     public static function validateToken($token) {
-        $trueToken = Session::getInstance()->get(self::$secret);
+        $trueToken = Session::getInstance()->get(self::$sessionKey);
         self::removeToken();
         if (trim($trueToken) !== "" && $token === $trueToken) {
             return true;
@@ -55,6 +62,7 @@ class Csrf
      */
     public static function removeToken() {
         Session::getInstance()->delete(self::$secret);
+        Session::getInstance()->commit();
     }
     /**
      * Проверка токена напрямую из запроса

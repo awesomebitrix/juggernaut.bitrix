@@ -9,7 +9,7 @@ class olof_juggernaut extends CModule
     var $MODULE_DESCRIPTION = "Альтернатива BitrixFramework";
     
     function __construct() {
-		$this->PARTNER_NAME = "Олоф";
+        $this->PARTNER_NAME = "Олоф";
     	$this->PARTNER_URI = "http://www.olof.ru";
     }
 

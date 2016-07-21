@@ -59,6 +59,7 @@ class Session
     public function abort() {
         if ($this->isStarted) {
             session_abort();
+            $this->isStarted = false;
         }
         return $this;
     }
@@ -132,6 +133,14 @@ class Session
         }
         else {
             $this->set($name, [$value]);
+        }
+        return $this;
+    }
+
+    public function commit() {
+        if ($this->isStarted) {
+            session_commit();
+            $this->isStarted  = false;
         }
         return $this;
     }

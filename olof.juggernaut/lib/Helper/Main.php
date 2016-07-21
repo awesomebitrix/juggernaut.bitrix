@@ -51,8 +51,8 @@ class Main
      * @return mixed данные компонента
      */
     public static function includeComponent($name, array $params = [], $template = '.default') {
-        $parent = $params['parent'] ? $params['parent'] : null;
-        $functionParams = $params['functionParams'] ? $params['functionParams'] : [];
+        $parent = isset($params['parent']) ? $params['parent'] : null;
+        $functionParams = isset($params['functionParams']) ? $params['functionParams'] : [];
         unset(
             $params['functionParams'], 
             $params['parent']
