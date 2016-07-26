@@ -218,3 +218,42 @@ $data->get(50) === null;
 // найти первый элемент на текущей странице (3 параметр: true) который удовлетворяет условию: $row['name'] === 'искомое имя'
 $data->find("name", "искомое имя", true);
 ```
+
+ActiveRecord и ServiceLayer:
+
+```php
+/*
+ * AR: простой доступ к таблице, без логики, без первичных ключей
+ * данный класс, знает только о своей таблице
+ * как будто он один в этом мире :-)
+ * доступ к полям записи как к свойствам
+ */
+$model = new IblockElemenetMeta();
+$model->field = '123';
+$model->save();
+$model->delete();
+
+/*
+ * поиск по условию WHERE (без всяких сортировок и др.)
+ * все условия строятся с помощью класса Query
+ */
+$model = ActiveRecord::getRow($whereCondition);
+$model = ActiveRecord::getRowByPrimary($primary);
+$model = ActiveRecord::getRowByField($field, $value);
+
+$model = ActiveRecord::getList($whereCondition);
+$model = ActiveRecord::getListByField($whereCondition);
+
+/*
+ * SL: содержит логику и связь с другими таблицами
+ * наследуется от AR и содержит все ее методы и свойства
+ */
+$model = new IblockElement();
+$model->getSectionList(); // список разделов элемента
+$model->getIblock();   // инфоблок
+$model->getSection();  // секция указанная непосредственно в атрибуте
+
+$model->addSection($section);
+
+$model->save(); // сохраняет не только инфоблок, но и также каскадно сохраняет разделы
+```
