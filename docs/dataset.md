@@ -12,28 +12,57 @@
 1. Сортировщик - отвечает за сортировку данных
 1. Пагинатор - отвечает за разбивку данных по страницам
 
+## Данные
+
+Класс `DataSet` отвечает за предоставление унифицированного доступа к данным, 
+которым в последствии пользуются сортировщик и пагинатор.
+
+```php
+$dataset = new DataSet($data);
+/*
+ * первый элемент (с учетом сортировки и пагинации)
+ */
+$dataset->get(0);
+/*
+ * установка данных
+ */
+$dataset->set(50);
+/*
+ * найти первый элемент на текущей странице (3 параметр: true), 
+ * который удовлетворяет условию: $row['name'] === 'искомое имя'
+ */
+$dataset->find("name", "искомое имя", true);
+```
+
 ## Сортировщик
 
 Класс `Sorter` отвечает за сортировку данных представленных набором.
 Пример работы:
 ```php
-/*
- * создаем набор данных
- */
-$data = new DataSet($data);
+$dataset = new DataSet($data);
 /*
  * создаем сортировкщика на все поля
  */
-$data->sorter = new Sorter();
+$dataset->sorter = new Sorter();
 /*
  * создаем сортировкщика на конкретные поля
  */
-$data->sorter = new Sorter(["field1","field2","field3"]);
+$dataset->sorter = new Sorter(["field1","field2","field3"]);
 /*
  * по умолчанию устанавливается натуральная сортировка по убыванию и возрастанию
  * при необходимости можно установить на каждое поле свой тип сортировки
  */
-$data->sorter->setSortType("field4", Sorter::ASC_NATURAL, Sorter::DESC);
+$dataset->sorter->setSortType("field4", Sorter::ASC_NATURAL, Sorter::DESC);
+```
+
+Внимание: если Вы работаете с набором данных `ResultDataSet`, 
+то при сортировке будут выгружаться **все** данные в массив, 
+после чего будет проводиться сортировка.
+При размере выборки более 500, выбросится исключение с вежливым сообщением о неразумности использования сортировки в данной ситуации.
+
+Отключить данное поведение можно отключив свойство отладки:
+```php
+$dataset->debug = false;
 ```
 
 ## Пагинатор
@@ -41,19 +70,16 @@ $data->sorter->setSortType("field4", Sorter::ASC_NATURAL, Sorter::DESC);
 Класс `Paginator` отвечает за разбивку большого объема данных на порции (страницы).
 Пример работы:
 ```php
-/*
- * создаем набор данных
- */
-$data = new DataSet($data);
+$dataset = new DataSet($data);
 /*
  * разбивка на страницы по 50 штук и в данный момент выбрана 3-я страница
  */
-$data->paginator = new Paginator($totalCount, 50, 3);
+$dataset->paginator = new Paginator($totalCount, 50, 3);
 /*
  * либо все эти свойства можно указать отдельно
  * общее количество автоматически вычисляется из данных
  */
-$data->paginator->totalCount = $totalCount;
-$data->paginator->perPage = 50;
-$data->paginator->nowPage = 3;
+$dataset->paginator->totalCount = $totalCount;
+$dataset->paginator->perPage = 50;
+$dataset->paginator->nowPage = 3;
 ```
