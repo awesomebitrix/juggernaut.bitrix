@@ -19,24 +19,6 @@
 
 ```php
 /*
- * список правил
- */
-$urlRewrite = [
-    [
-        "name" => "catalog",
-        "file" => "/catalog/index.php",
-        "rules" => [
-            "sectionList" => "catalog/",
-            "elementList" => "catalog/{sectionCode}/",
-            "elementView" => "catalog/{sectionCode}/{elementCode}/",
-        ],
-    ],
-];
-/*
- * генерация url по правилам
- */
-Url::to("catalog/elementList", ["sectionCode" => "..."]);
-/*
  * подключение виджета
  */
 Widget::run([
