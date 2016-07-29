@@ -15,18 +15,25 @@ namespace Jugger\Schema;
  */
 class OpenGraphBitrix extends OpenGraph
 {
+    public static $instance;
+
     public function build() {
         global $APPLICATION;
         $graph = $this->buildGraph();
         foreach ($graph as $name => $value) {
             $APPLICATION->SetPageProperty($name, $value);
         }
+        self::$instance = $this;
     }
     
-    public function show() {
-        $properties = (new \ReflectionClass($this))->getProperties(\ReflectionProperty::IS_PUBLIC);
+    public static function show() {
+        global $APPLICATION;
+        $properties = (new \ReflectionClass(get_called_class()))->getProperties(\ReflectionProperty::IS_PUBLIC);
         foreach ($properties as $prop) {
-            $APPLICATION->ShowMeta("og:".$prop);
+            if ($prop->isStatic()) {
+                continue;
+            }
+            $APPLICATION->ShowMeta("og:".$prop->getName());
         }
     }
 }
