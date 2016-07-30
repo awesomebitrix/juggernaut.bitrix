@@ -1,0 +1,6 @@
+{
+  "name": "Juggernaut.bitrix",
+  "tagline": "",
+  "body": "# Juggernaut\r\n\r\n**Juggernaut** - это библиотека (с претензией на фреймворк), которая расширяет возможности BitrixFramework, а также облегчает жизнь разработчику.\r\n\r\nОсновная задача данного проекта: сделать приятной, удобной и простой разработку под Bitrix.\r\n\r\nЕсли Вы не нашли ответ на свой вопрос или у Вас есть предложения/пожелания, можете изложить их [здесь](https://github.com/irpsv/juggernaut.bitrix/issues).\r\n\r\nНу а если Ваш интузиазм зашкаливает и Вы готовы напись/править пару строк кода, то уверен Вы знаете что делать ;-)\r\n\r\n## Установка\r\n\r\nНа данный момент, установить модуль можно только используя **Composer**, командой:\r\n\r\n```\r\ncomposer require irpsv/juggernaut.bitrix\r\n```\r\n\r\nЗатем вы можете скопировать папку `olof.juggernaut` и поместить ее к модулям системы, либо в файле `php_interface/init.php` подключить автозагрузчик Composer'а, а затем подключить модуль штатными средствами Битрик. Например:\r\n\r\n```php\r\ninclude $_SERVER['DOCUMENT_ROOT'] .'/vendor/autoload.php';\r\n\r\n\\Bitrix\\Main\\Loader::includeModule('olof.juggernaut');\r\n```\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
