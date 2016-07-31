@@ -1,5 +1,7 @@
 # Juggernaut
 
+site: [https://irpsv.github.io/juggernaut.bitrix/](https://irpsv.github.io/juggernaut.bitrix/)
+
 **Juggernaut** - это библиотека (с претензией на фреймворк), которая расширяет возможности BitrixFramework, а также облегчает жизнь разработчику.
 
 Основная задача данного проекта: сделать приятной, удобной и простой разработку под Bitrix.
