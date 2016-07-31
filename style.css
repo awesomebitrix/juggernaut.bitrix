@@ -1,16 +1,21 @@
 html {
 	font-size: 16px;
 }
-h1 {
-    font-size: 25px;
-}
 h2 {
+    font-size: 25px;
+    color: #515456;
+}
+h1 {
     font-size: 40px;
+    color: #650e19;
+    font-weight: 700;
 }
 .page-header {
     background: #4a040c;
     background: linear-gradient(to top right, #4a040c, #741420);
     padding: 30px 0px;
+    text-align: center;
+    color: white;
 }
 .page-header a {
     background: rgba(255,255,255,0.1);
@@ -22,13 +27,15 @@ h2 {
 }
 .page-header .project-name {
     font-weight: 700;
-}
-.page-header .project-tagline {
-    
+    padding-bottom: 15px;
+    color: yellow;
+    text-transform: uppercase;
 }
 .feature-block {
-    
+    border-bottom: 1px solid #f1f1f1;
+    margin-bottom: 10px;
 }
 .feature-block .feature-desc {
-    
+    font-style: italic;
+    color: #929292;
 }
