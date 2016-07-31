@@ -1,37 +1,41 @@
 <!DOCTYPE html>
 <html lang="ru-ru">
 <head>
-    <title>Juggernaut.bitrix</title>
+    <title>Juggernaut</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/default.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <header>
         <section class="page-header">
             <h1 class="project-name">
-                Juggernaut.bitrix
+                Juggernaut
             </h1>
             <h2 class="project-tagline">
             </h2>
-            <a href="https://github.com/irpsv/juggernaut.bitrix" class="btn">View on GitHub</a>
-            <a href="https://github.com/irpsv/juggernaut.bitrix/zipball/master" class="btn">Download .zip</a>
-            <a href="https://github.com/irpsv/juggernaut.bitrix/tarball/master" class="btn">Download .tar.gz</a>
+            <a href="https://github.com/irpsv/juggernaut.bitrix" class="btn">GitHub</a>
+            <a href="https://github.com/irpsv/juggernaut.bitrix/issues" class="btn">Issues</a>
+            <!-- <a href="https://github.com/irpsv/juggernaut.bitrix/tarball/master" class="btn">Blog</a> -->
         </section>
     </header>
     <div class='container'>
         <main>
-            <section class='feature-block'>
+            <section class='feature-block' style='margin-top: 30px;'>
                 <h1>
                     About
                 </h1>
                 <p>
-                    <b>Juggernaut</b> - это набор независимых друг от друга компонентов, 
-                    которые объеденены в единый модуль для CMS Битрикс. 
-                    Вы можете использовать использовать компоненты по отдельности в любых своих проектах, 
-                    либо использовать в совокупности для разработки под Битрик.
+                    <b>Juggernaut</b> - это библиотека (с претензией на фреймворк), которая расширяет возможности BitrixFramework, а также облегчает жизнь разработчику.
+                </p>
+                <p>
+                    Можно использовать компоненты по отдельности в любых проектах, либо использовать в совокупности для разработки под Битрикс (<b>juggernaut.bitrix</b>).
+                </p>
+                <p>
+                    Основная задача данного проекта: сделать приятной, удобной и простой разработку под Битрикс.
                 </p>
             </section>
             <section class='feature-block'>
@@ -39,9 +43,14 @@
                     Get started
                 </h1>
                 <p>
-                  Установить модуль можно с помощью Compser:
+                  Установить модуль для Битрикс можно с помощью Compser:
                   <pre><code class="bash">composer require irpsv/juggernaut.bitrix</code></pre>
-                  В последствии, вам необходимо подключить файл <b>autoload</b> компосера, и вы сможете напрямую обращаться к любым классам, <u>без</u> непосредственного подключения модуля с помощью Битрикс.
+                </p>
+                <p>
+                    В последствии, необходимо подключить файл <b>autoload.php</b> компосера, тогда можно будет напрямую обращаться к любым классам, <u>без</u> непосредственного подключения модуля с помощью Битрикс.
+                </p>
+                <p>
+                    Если говорить про использование компонентов вне Битрикс, то подключение производиться также через composer.
                 </p>
             </section>
             <section class='feature-block'>
@@ -56,7 +65,18 @@
                 </p>
                 <p>
                     Для каждого компонента представлен краткий пример и описание. 
-                    Более подробный пример и документацию о каждом, Вы можете узнать в соответствующих репозиториях.
+                    Более подробный пример и документацию о каждом, можно узнать в соответствующих репозиториях.
+                </p>
+            </section>
+            <section class='feature-block'>
+                <h2>
+                    Bitrix
+                </h2>
+                <p class="feature-desc">
+                    Данный компонент, это сборка всех компонентов библиотеки и адаптациях их под Битрикс.
+                </p>
+                <p>
+                    Собственно для разработки под Битрикс, достаточно подключить данный компонент, все остальные подтянутся автоматически.
                 </p>
             </section>
             <section class='feature-block'>
@@ -64,10 +84,77 @@
                     ActiveRecord
                 </h2>
                 <p class="feature-desc">
-                    
+                    Active Record (AR) - это объект, который является "обёрткой" одной строки из БД или представления, включает в себя доступ к БД и логику обращения с данными.
                 </p>
                 <p>
-                    
+                    Паттерн древний, как сама жизнь, так что лишних объяснений думаю не нужно.
+                </p>
+                <p>
+                    Однако, ряд функций вынесены в <b>ServiceLayer</b>, поэтому в реализации данного паттерна, выполняется ряд оговорок:
+                    <ul>
+                        <li>
+                            AR-объект один в этом мире - никаких данных о других таблицах, в реализации нет;
+                        </li>
+                        <li>
+                            AR не содержит бизнес-логики - все логика и точки взаимодействия содержатся в <b>ServiceLayer</b>;
+                        </li>
+                        <li>
+                            AR не содержит транзакций - по сути AR они и не нужны, т.к. все операции выполняются за одни запрос к базе.
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    Ниже представлен пример реализации для инфоблока:
+                </p>
+                <p>
+                    ...код реализации инфоблока...
+                </p>
+            </section>
+            <section class='feature-block'>
+                <h2>
+                    Validator
+                </h2>
+                <p class="feature-desc">
+                    Валидатор - это объект, который проверяет соответствие некого значения, некому условию. 
+                </p>
+                <p>
+                    Валидация, очень важная составляющая приложения, т.к. каждая система должна вести себя как параноидальный-шизофреник и ни в коем случае не доверят входным данным пользователя.
+                </p>
+                <p>
+                    Для создания валидатора, нужно реализовать класс <b>Validator</b> и всего один метод.
+                    Пример числового валидатора: 
+                </p>
+                <p>
+                    ...код...
+                </p>
+                <p>
+                    В данном компоненте уже реализованы основные валидаторы, которые требуются в большинстве случаев:
+                    <ul>
+                        <li>
+                            <b>RequireValidator</b> - проверяет установленно ли значение
+                        </li>
+                        <li>
+                            <b>IntegerValidator</b> - проверка на целочисленность
+                        </li>
+                        <li>
+                            <b>NumberValidator</b> - проверка на число
+                        </li>
+                        <li>
+                            <b>LengthValidator</b> - проверка соотвествия количества символов
+                        </li>
+                        <li>
+                            <b>RangeValidator</b> - проверка на нахождение числа в указанном диапазоне
+                        </li>
+                        <li>
+                            <b>EmailValidator</b> - проверка строки на соответствие формату электронной почты
+                        </li>
+                        <li>
+                            <b>UrlValidator</b> - проверка строки на соответствие формату URL адреса
+                        </li>
+                        <li>
+                            <b>RegexpValidator</b> - проверка строки на соответствие регулярному выржанию (большинство валидаторов реализованы на основе данного)
+                        </li>
+                    </ul>
                 </p>
             </section>
             <section class='feature-block'>
@@ -75,10 +162,24 @@
                     ServiceLayer
                 </h2>
                 <p class="feature-desc">
-                    
+                    Service Layer (SL) определяет для приложения границу и набор допустимых операций с точки зрения взаимодействующих с ним клиентских, инкапсулирует бизнес-логику приложения, управляя транзакциями и управляя ответами в реализации этих операций.
                 </p>
                 <p>
-                    
+                    Вся бизнес-логика и все взаимодействие между ActiveRecord содержится именно в реализации данных элементов приложения.
+                </p>
+                <p>
+                    Данный класс наследуется от ActiveRecord, и содержит механизм связи внешних ключей с AR-записями:
+                </p>
+                <p>
+                    ...код реализации связи с внешним ключем...
+                </p>
+                <p>
+                    Также, рекомендуется выносить реализацию CRUD операций в SL, если сохранение затрагивает несколько таблиц.
+                    Однако, работать нужно только с AR-объектами, чтобы избежать зацикливания.
+                    Например:
+                </p>
+                <p>
+                    ...код примера зацикливания...
                 </p>
             </section>
             <section class='feature-block'>
@@ -153,8 +254,7 @@
                 <a href="https://github.com/irpsv/juggernaut.bitrix">Juggernaut.bitrix</a> is maintained by <a href="https://github.com/irpsv">irpsv</a>.
             </span>
         </footer>
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/default.min.css">
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/highlight.min.js"></script>
         <script>
             hljs.initHighlighting();
         </script>
