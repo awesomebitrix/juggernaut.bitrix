@@ -15,7 +15,6 @@
                 Juggernaut.bitrix
             </h1>
             <h2 class="project-tagline">
-                сила в силе бро
             </h2>
             <a href="https://github.com/irpsv/juggernaut.bitrix" class="btn">View on GitHub</a>
             <a href="https://github.com/irpsv/juggernaut.bitrix/zipball/master" class="btn">Download .zip</a>
@@ -41,11 +40,8 @@
                 </h1>
                 <p>
                   Установить модуль можно с помощью Compser:
-                  <pre>
-                      <code class="bash">
-                          composer require irpsv/juggernaut.bitrix
-                      </code>
-                  </pre>
+                  <pre><code class="bash">composer require irpsv/juggernaut.bitrix</code></pre>
+                  В последствии, вам необходимо подключить файл <b>autoload</b> компосера, и вы сможете напрямую обращаться к любым классам, <u>без</u> непосредственного подключения модуля с помощью Битрикс.
                 </p>
             </section>
             <section class='feature-block'>
@@ -53,10 +49,14 @@
                     Components
                 </h1>
                 <p class="feature-desc">
-                    
+                    Каждый компонент отвечает за одну логическую составляющую веб-приложения.
                 </p>
                 <p>
-                    
+                    Ниже представленны все компоненты, которые реализованы (или будут) в библиотеке Juggernaut.
+                </p>
+                <p>
+                    Для каждого компонента представлен краткий пример и описание. 
+                    Более подробный пример и документацию о каждом, Вы можете узнать в соответствующих репозиториях.
                 </p>
             </section>
             <section class='feature-block'>
@@ -155,6 +155,9 @@
         </footer>
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/default.min.css">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/highlight.min.js"></script>
+        <script>
+            hljs.initHighlighting();
+        </script>
     </div>
 </body>
 </html>
