@@ -8,7 +8,12 @@
 1. View + Template
 1. AssetManager
 1. Response / Request / Http
+1. Cache
+1. UrlManager / Route
+1. Bitrix.AdminInterface
+1. Bitrix.ApplicationOjbect
 
+--- old ---
 
 1. JSON-LD
 2. CJ: кешировать ответа сервера
