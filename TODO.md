@@ -1,3 +1,15 @@
+Разбить весь фреймворк на монолитные составляющие:
+
+1. ActiveRecord
+1. QueryBuilder
+1. FieldType
+1. Controller
+1. Widget + BootstrapWidgets
+1. View + Template
+1. AssetManager
+1. Response / Request / Http
+
+
 1. JSON-LD
 2. CJ: кешировать ответа сервера
 2. валидаторы
